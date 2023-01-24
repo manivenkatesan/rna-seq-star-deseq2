@@ -1,3 +1,5 @@
 sample_name	condition
-A	untreated
-B	treated
+SRR7942396_GSM3406787_sAML_Control_2_Homo_sapiens_RNA-Seq_1	A
+SRR7942397_GSM3406788_sAML_200_nM_BC2059_1_Homo_sapiens_RNA-Seq_1	B
+SRR7942398_GSM3406789_sAML_200_nM_BC2059_2_Homo_sapiens_RNA-Seq_1	B
+SRR7942395_GSM3406786_sAML_Control_1_Homo_sapiens_RNA-Seq_1	A

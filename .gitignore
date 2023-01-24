@@ -1,4 +1,3 @@
-*
 !scripts
 !scripts/*
 !scripts/common
@@ -21,3 +20,12 @@ scripts/.snakemake*
 !.gitattributes
 !.test
 !.test/data
+!workflow
+!workflow/*
+.snakemake/
+logs/
+resources/
+results/
+workflow/.snakemake/
+config/samples.tsv
+config/units.tsv

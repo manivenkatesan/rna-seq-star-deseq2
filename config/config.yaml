@@ -35,3 +35,9 @@ params:
   cutadapt-pe: ""
   cutadapt-se: ""
   star: "--outSAMtype BAM Unsorted"
+
+gsea:
+#download gmt files from http://www.gsea-msigdb.org/gsea/msigdb/index.jsp to "resources/genesets" folder
+  hallmark_curated_geneset: "/DATA/m.venkatesan/rna-seq-star-deseq2/resources/genesets/h.all.v2022.1.Hs.symbols.gmt"
+  c1_curated_geneset: "/DATA/m.venkatesan/rna-seq-star-deseq2/resources/genesets/c1.all.v2022.1.Hs.symbols.gmt"
+  c2_curated_geneset: "/DATA/m.venkatesan/rna-seq-star-deseq2/resources/genesets/c2.all.v2022.1.Hs.symbols.gmt"
