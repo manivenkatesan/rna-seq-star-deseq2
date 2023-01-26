@@ -18,7 +18,6 @@ Create the virtual environment in which to run the workflow:
 
 `conda create -n snakemake7.19.1 snakemake=7.19.1 mamba=1.1.0`
 
-
 Running the workflow gives an error:
 
 > EXITING: FATAL INPUT ERROR: duplicate parameter "outSAMtype" in input "Command-Line"
@@ -29,7 +28,6 @@ To resolve this issue edit workflow/rules/align.smk:
 
 Delete: `, config["params"]["star"] `AND `{}`
 
-
 collections.abc There was a change in Python 3.10 and the `Mapping` class has been moved to the [collections.abc](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping) module. If you use Python version 3.10+, change your imports from the following:
 
 In file or wherever the traceback error points towards (for me it was here): `.snakemake/conda/a615f0c5239e1fe3f0c98c4a736f16c9/lib/python3.11/site-packages/multiqc/utils/config.py`
@@ -38,7 +36,12 @@ Change `import collections`to `import collections.abc`
 
 Change `collections.Mapping` to `collections.abc.Mapping`
 
-
 Run snakemake:
 
 `snakemake --cores all --use-conda`
+
+Download the datasets into `resources/raw_datasets` . 
+
+Make sure to double check that rule `gseapy_gsea` and script `gseapy_gsea.py` are 
+
+correctly linking samples and conditions in the comparisons!

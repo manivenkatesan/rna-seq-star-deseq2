@@ -1,6 +1,6 @@
 rule prerank_file_preparation:
     input:
-        counts="results/diffexp/{contrast}.diffexp.symbol.tsv", 
+        normcounts="results/deseq2/normcounts.symbol.tsv", 
     output:
         ranked="results/gseapy/{contrast}.diffexpr.rnk",
     log:
@@ -13,11 +13,11 @@ rule prerank_file_preparation:
         "../scripts/gseapy_prerank.R" 
 
 #Hallmark gene sets: h.all.v2022.1.Hs.symbols 
-rule gseapy_prerank_hallmark:
+rule gseapy_gsea_hallmark:
     input:
-        ranked2=rules.prerank_file_preparation.output.ranked
+        ranked2=rules.prerank_file_preparation.output.ranked,
     output:
-        prerank_res=directory("results/gseapy/{contrast}.gseapy_preranked_hallmark")
+        gsea_res=directory("results/gseapy/{contrast}.gseapy_gsea_hallmark")
     log:
         "logs/gseapy/{contrast}.gseapy_preranked_hallmark.log",
     params: 
@@ -26,7 +26,11 @@ rule gseapy_prerank_hallmark:
     threads: 24
     shell:
         """
-            gseapy prerank -r {input.ranked2} -g {config[gsea][hallmark_curated_geneset]} -o {output}
+            gseapy gsea -d ./data/P53_resampling_data.txt \
+            -g KEGG_2016 -c ./data/P53.cls \
+            -o test/gsea_reprot_2 \
+            -v --no-plot \
+            -t phenotype
         """
 
 #C1 curated gene sets: c1.all.v2022.1.Hs.symbols 

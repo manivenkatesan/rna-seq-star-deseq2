@@ -22,6 +22,7 @@ scripts/.snakemake*
 !.test/data
 !workflow
 !workflow/*
+!workflow/rules
 .snakemake/
 logs/
 resources/
